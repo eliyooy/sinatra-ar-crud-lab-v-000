@@ -27,15 +27,15 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/:id/edit' do
-    @post = Post.find(params[:id])
+    @post_edit = Post.find(params[:id])
     erb :edit
   end
 
   patch '/posts/:id' do
-    @post = Post.find(params[:id])
-    @post.name = params[:name]
-    @post.content = params[:content]
-    @post.save
+    @post_edit = Post.find(params[:id])
+    @post_edit.name = params[:name]
+    @post_edit.content = params[:content]
+    @post_edit.save
     erb :show
   end
 
